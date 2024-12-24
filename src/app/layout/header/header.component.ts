@@ -1,0 +1,44 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
+@Component({
+  selector: 'app-header',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
+  template: `
+    <header class="bg-white shadow">
+      <nav class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center">
+            <a routerLink="/" class="text-xl font-bold text-gray-800">
+              TodoList
+            </a>
+          </div>
+          
+          <div class="flex space-x-4">
+            <a 
+              routerLink="/dashboard" 
+              routerLinkActive="text-blue-500"
+              class="px-3 py-2 rounded-md text-sm font-medium hover:text-blue-500">
+              Tableau de bord
+            </a>
+            <a 
+              routerLink="/tasks" 
+              routerLinkActive="text-blue-500"
+              class="px-3 py-2 rounded-md text-sm font-medium hover:text-blue-500">
+              Tâches
+            </a>
+            <a 
+              routerLink="/categories" 
+              routerLinkActive="text-blue-500"
+              class="px-3 py-2 rounded-md text-sm font-medium hover:text-blue-500">
+              Catégories
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+  `
+})
+export class HeaderComponent {}

@@ -1,1 +1,69 @@
-<p>task-list works!</p>
+<div class="container mx-auto p-4">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold">Mes tâches</h1>
+      <button 
+        [routerLink]="['/tasks/new']"
+        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+        Nouvelle tâche
+      </button>
+    </div>
+
+    <!-- Barre de recherche -->
+    <div class="mb-6">
+      <input 
+        [formControl]="searchControl"
+        type="text"
+        placeholder="Rechercher une tâche..."
+        class="w-full p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
+      >
+    </div>
+
+    <!-- Liste des tâches -->
+    <div class="grid gap-4">
+      @for (task of filteredTasks$ | async; track task.id) {
+        <div 
+          class="p-4 border rounded-lg shadow hover:shadow-md transition-shadow"
+          [class.bg-green-50]="task.status === 'COMPLETED'"
+          [class.bg-yellow-50]="task.status === 'IN_PROGRESS'"
+          [class.bg-red-50]="isOverdue(task)"
+        >
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="font-semibold text-lg">{{ task.title }}</h3>
+              <p class="text-gray-600">{{ task.description }}</p>
+            </div>
+            <div class="flex gap-2">
+              <button 
+                [routerLink]="['/tasks', task.id, 'edit']"
+                class="text-blue-500 hover:text-blue-700">
+                Modifier
+              </button>
+              <button 
+                (click)="deleteTask(task.id)"
+                class="text-red-500 hover:text-red-700">
+                Supprimer
+              </button>
+            </div>
+          </div>
+          <div class="mt-3 flex gap-4 text-sm">
+            <span [class]="getPriorityClass(task.priority)">
+              {{ task.priority }}
+            </span>
+            <span [class]="getStatusClass(task.status)">
+              {{ task.status }}
+            </span>
+            <span [class]="{'text-red-600 font-semibold': isOverdue(task), 'text-gray-500': !isOverdue(task)}">
+              Échéance: {{ task.dueDate | date:'dd/MM/yyyy HH:mm' }}
+              @if (isOverdue(task)) {
+                <span class="ml-2 text-red-600">(En retard)</span>
+              }
+            </span>
+          </div>
+        </div>
+      } @empty {
+        <div class="text-center py-8 text-gray-500">
+          Aucune tâche trouvée
+        </div>
+      }
+    </div>
+  </div>

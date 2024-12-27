@@ -67,6 +67,7 @@ export class CategoryService {
         ...currentCategories[categoryIndex],
         ...updates
       };
+     
       
       currentCategories[categoryIndex] = updatedCategory;
       this.saveCategories(currentCategories);

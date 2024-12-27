@@ -60,16 +60,6 @@ import { map } from 'rxjs/operators';
             [options]="barChartOptions">
           </canvas>
         </div>
-
-        <!-- Graphique en ligne des tâches sur le temps -->
-        <div class="bg-white p-6 rounded-lg shadow col-span-2">
-          <h3 class="text-lg font-semibold mb-4">Évolution des tâches</h3>
-          <canvas baseChart
-            [type]="'line'"
-            [data]="timelineChartData"
-            [options]="lineChartOptions">
-          </canvas>
-        </div>
       </div>
     </div>
   `

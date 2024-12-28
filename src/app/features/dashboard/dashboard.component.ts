@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgChartsModule } from 'ng2-charts';
 import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
-import { TaskService } from '../../../core/services/task.service';
-import { CategoryService } from '../../../core/services/category.service';
+import { TaskService } from '../../core/services/task.service';
+import { CategoryService } from '../../core/services/category.service';
 import { combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 

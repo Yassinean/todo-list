@@ -22,7 +22,7 @@ export class TaskListComponent implements OnInit {
 
   ngOnInit() {
     this.searchControl.valueChanges.pipe(
-      debounceTime(300),
+      debounceTime(50),
       distinctUntilChanged(),
       startWith('')
     ).subscribe(searchTerm => {

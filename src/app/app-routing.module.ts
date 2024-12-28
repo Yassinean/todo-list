@@ -4,7 +4,7 @@ import { TaskListComponent } from './features/tasks/task-list/task-list.componen
 import { TaskFormComponent } from './features/tasks/task-form/task-form.component';
 import { CategoryListComponent } from './features/categories/category-list/category-list.component';
 import { CategoryFormComponent } from './features/categories/category-form/category-form.component';
-import { DashboardComponent } from './features/dashboard/dashboard/dashboard.component';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
 
 export const routes: Routes = [
   {

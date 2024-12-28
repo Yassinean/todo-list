@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 
 @NgModule({
@@ -11,6 +10,6 @@ import { HeaderComponent } from './layout/header/header.component';
     AppRoutingModule,
     HeaderComponent
   ],
-  bootstrap: [AppComponent]
+  // bootstrap: [AppComponent]
 })
 export class AppModule { } 
